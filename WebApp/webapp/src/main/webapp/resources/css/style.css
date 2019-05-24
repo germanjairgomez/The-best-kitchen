@@ -1,0 +1,11 @@
+#msj-alerta{
+	margin-top: 20px;
+    color: green;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+#javax_faces_developmentstage_messages li{
+	color: #ffffff !important;
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jboss-deployment-structure>
+  <deployment>
+    <dependencies>    
+      <module name="org.springframework.spring" export="true" meta-inf="export"/>
+      <module name="org.springframework.boot" export="true" meta-inf="export"/>
+      <module name="org.slf4j" export="true" meta-inf="export"/>
+      <module name="com.mysql" export="true" meta-inf="export"/>
+      <module name="org.hibernate" export="true" meta-inf="export"/>
+    </dependencies>
+  </deployment>
+</jboss-deployment-structure>

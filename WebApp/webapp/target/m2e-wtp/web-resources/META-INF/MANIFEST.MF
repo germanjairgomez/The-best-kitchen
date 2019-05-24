@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: webapp Maven Webapp
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: ingenieria
+Implementation-Vendor-Id: com.lamejorcocina
+Build-Jdk: 1.8.0_211
+Implementation-URL: http://www.lamejorcocina.com:8080/webapp/
+Created-By: Maven Integration for Eclipse
+

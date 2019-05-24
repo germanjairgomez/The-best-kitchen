@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+	<f:metadata>
+	  <f:viewParam name="tipoRegistro" value="#{gestionPortal.tipoRegistro}"/>
+	  <f:event type="preRenderView" listener="#{gestionPortal.validarTipoRegistro}" />
+	</f:metadata>
+<body>
+	<ui:decorate template="/index.xhtml">
+		<ui:define name="content">
+			<div class="col-xs-6 col-xs-offset-3">
+				<div class="panel panel-primary">
+					<div class="panel-heading text-center">Registrar #{gestionPortal.tipoRegistro}</div>
+					<div class="panel-body">
+						<h:form class="form">
+							<div class="form-group">
+								<label for="cedula">Número de Cedula</label> 
+								<h:inputText value="#{gestionRegistros.idPersona}" class="form-control" id="cedula" placeholder="Digite su número de cedula" required="true"/>
+							</div>
+							<div class="form-group">
+								<label for="nombre">Nombre</label> 
+								<h:inputText value="#{gestionRegistros.nombre}" class="form-control" id="nombre" placeholder="Digite su nombre" required="true"/>
+							</div>
+							<div class="form-group">
+								<label for="apellido1">Primer Apellido</label> 
+								<h:inputText value="#{gestionRegistros.primerApellido}" class="form-control" id="primerApellido" placeholder="Digite su primer apellido" required="true"/>
+							</div>
+							<div class="form-group">
+								<label for="apellido2">Segundo Apellido</label> 
+								<h:inputText value="#{gestionRegistros.segundoApellido}" class="form-control" id="segundoApellido" placeholder="Digite su Segundo apellido" required="true"/>
+							</div>
+							<ui:fragment rendered="#{gestionPortal.tipoRegistro eq 'cliente'}">								
+								<div class="form-group">
+									<label for="apellido2">observaciones</label> 
+									<h:inputText value="#{gestionRegistros.observaciones}" class="form-control" id="observaciones" placeholder="¿Tiene alguna observación?" required="true"/>
+								</div>
+							</ui:fragment>
+							<center>
+								<h:commandButton value="Registrar" action="#{gestionRegistros.registrar(gestionPortal.tipoRegistro)}" actionListener="#{gestionRegistros.getValidarResultado()}" class="btn btn-primary"/>								
+							</center>	
+							<div class="center-block text-center" id="msj-alerta">
+								<h:outputText value="#{gestionRegistros.resultado}" />
+							</div> 
+						</h:form>
+					</div>
+					<div class="panel-footer">
+						<div class="row">		
+							<div class="col-xs-12">
+								<a href="/webapp/index.xhtml">
+									<button class="btn btn-warning pull-right">Inicio</button>
+								</a>			
+								<a href="/webapp/consultas/consultar-persona.xhtml?tipoRegistro=#{gestionPortal.tipoRegistro}" class="">
+									<button class="btn btn-default pull-left">Consultar #{gestionPortal.tipoRegistro}s</button>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</ui:define>
+	</ui:decorate>
+</body>
+</html>

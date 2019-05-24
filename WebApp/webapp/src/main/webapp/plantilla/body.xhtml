@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      >      
+	<f:metadata>
+	    <f:viewParam name="tipoRegistro" value="#{gestionPortal.setTipo(tipoRegistro)}" />
+	</f:metadata>
+    <body>
+	    <ui:composition>
+			<div class="row">
+				<div class="col-xs-8 col-xs-offset-2">					
+					<div class="row">
+						<ui:repeat var="iteracion" value="#{gestionPortal.gestionarModulos()}">
+							<ui:fragment rendered="#{(iteracion == 'camarero') || (iteracion == 'cliente') || (iteracion == 'cocinero')}">
+								<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+									<div class="panel panel-primary">
+										<div class="panel-heading text-center">Gestión de #{iteracion}</div>
+										<div class="panel-body">
+										    <ul>
+											    <li>
+											    	<a href="/webapp/registros/registrar-persona.xhtml?tipoRegistro=#{iteracion}">Registrar #{iteracion}</a>
+											    </li>
+											    <li>
+											    	<a href="/webapp/consultas/consultar-persona.xhtml?tipoRegistro=#{iteracion}">Consultar #{iteracion}s</a>
+											    </li>
+										    </ul>
+										</div>
+									</div>
+								</div>
+							</ui:fragment>			
+							<ui:fragment rendered="#{iteracion == 'mesa'}">
+								<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+									<div class="panel panel-primary">
+										<div class="panel-heading text-center">Gestión de #{iteracion}</div>
+										<div class="panel-body">
+										    <ul>
+											    <li>
+											    	<a href="/webapp/registros/registrar-#{iteracion}.xhtml">Registrar #{iteracion}</a>
+											    </li>
+											    <li>
+											    	<a href="/webapp/consultas/consultar-#{iteracion}.xhtml">Consultar #{iteracion}</a>
+											    </li>
+										    </ul>
+										</div>
+									</div>
+								</div>
+							</ui:fragment>				
+						</ui:repeat>					
+						<div class="col-xs-12 col-sm-6 col-md-4">
+							<div class="panel panel-primary">
+								<div class="panel-heading text-center">Ejecución de Querys</div>
+								<div class="panel-body">
+								    <ul>
+									    <ui:repeat var="iteracion" value="#{gestionPortal.gestionarModulosReportes()}">
+										    <li>
+										    	<a href="/webapp/consultas/consultar-#{iteracion}.xhtml">Ejecutar #{iteracion}</a>
+										    </li>
+									    </ui:repeat>
+								    </ul>
+								</div>
+							</div>
+						</div>	
+						<div class="col-xs-12 col-sm-6 col-md-4">
+							<div class="panel panel-primary">
+								<div class="panel-heading text-center">Facturas</div>
+								<div class="panel-body">
+								    <ul>
+									    <li>
+									    	<a href="/webapp/registros/registrar-factura.xhtml">Registrar facturas</a>
+									    </li>
+									    <li>
+									    	<a href="/webapp/consultas/consultar-facturas.xhtml">Consultar facturas</a>
+									    </li>
+								    </ul>
+								</div>
+							</div>
+						</div>					
+					</div>
+				</div>
+			</div>
+	    </ui:composition>
+    </body>
+</html>

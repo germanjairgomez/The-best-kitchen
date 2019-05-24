@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<module name="org.slf4j" xmlns="urn:jboss:module:1.6">
+    <resources>
+        <resource-root path="slf4j-api-1.7.22.jbossorg-1.jar"/>
+		<resource-root path="slf4j-api-1.7.25.jar"/>
+        <resource-root path="jul-to-slf4j-1.7.25.jar"/>
+    </resources>
+
+    <dependencies>
+        <module name="org.slf4j.impl"/>
+    </dependencies>
+</module>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<body>
+	<ui:decorate template="/index.xhtml">
+		<ui:define name="content">
+			<div class="col-xs-6 col-xs-offset-3">
+				<div class="panel panel-primary">
+					<div class="panel-heading text-center">Registrar mesa</div>
+					<div class="panel-body">
+						<h:form class="form">
+							<div class="form-group">
+								<label for="numMaxComensales">Número máximo de comensales</label> 
+								<h:inputText value="#{gestionRegistros.numMaxComensales}" class="form-control" id="numMaxComensales" placeholder="Digite el número máximo de comensales" required="true">
+									<f:validateLength minimum="1" maximum="30" />
+								</h:inputText>
+							</div>
+							<div class="form-group">
+								<label for="ubicacion">Ubicación</label> 
+								<h:inputText value="#{gestionRegistros.ubicacion}" class="form-control" id="nombre" placeholder="Digite la ubicación de la mesa" required="true"/>
+							</div>
+							<center>
+								<h:commandButton value="Registrar" action="#{gestionRegistros.registrar('mesa')}" class="btn btn-primary"/>
+							</center>  
+							<div class="center-block text-center" id="msj-alerta">
+								<h:outputText value="#{gestionRegistros.resultado}" />
+							</div> 
+						</h:form>
+					</div>
+					<div class="panel-footer">
+						<div class="row">		
+							<div class="col-xs-12">
+								<a href="/webapp/index.xhtml">
+									<button class="btn btn-warning pull-right">Inicio</button>
+								</a>			
+								<a href="/webapp/consultas/consultar-mesa.xhtml" class="">
+									<button class="btn btn-default pull-left">Consultar Mesas</button>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</ui:define>
+	</ui:decorate>
+</body>
+</html>

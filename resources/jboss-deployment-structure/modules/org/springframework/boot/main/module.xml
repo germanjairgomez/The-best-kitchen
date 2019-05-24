@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module xmlns="urn:jboss:module:1.1" name="org.springframework.boot">
+  <resources>
+    <resource-root path="spring-boot-2.1.0.RELEASE.jar"/>
+    <resource-root path="spring-boot-starter-data-jpa-2.1.0.RELEASE.jar"/>
+    <resource-root path="spring-boot-starter-aop-2.1.0.RELEASE.jar"/>
+    <resource-root path="spring-boot-starter-2.1.0.RELEASE.jar"/>
+    <resource-root path="spring-boot-autoconfigure-2.1.0.RELEASE.jar"/>
+    <resource-root path="spring-boot-starter-logging-2.1.0.RELEASE.jar"/>
+    <resource-root path="spring-boot-starter-jdbc-2.1.0.RELEASE.jar"/>
+  </resources>
+  <dependencies>
+    <module name="org.apache.commons.logging"/>
+    <module name="javax.api" export="true"/>
+    <module name="org.jboss.vfs"/> 
+  </dependencies>
+</module>

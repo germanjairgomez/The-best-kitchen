@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<body>
+	<ui:decorate template="/index.xhtml">
+		<ui:define name="content">
+			<div class="col-xs-6 col-xs-offset-3">
+				<div class="panel panel-primary">
+					<div class="panel-heading text-center">Registrar facturas</div>
+					<div class="panel-body">
+						<h:form class="form">
+							<div class="form-group">
+								<label for="cliente">Cliente</label> 
+								<h:selectOneMenu value = "#{gestionRegistroFactura.idCliente}" >
+									<f:selectItems value="#{gestionRegistroFactura.consultarObjetosIDs('cliente')}"></f:selectItems>
+								</h:selectOneMenu>
+							</div>
+							
+							<div class="form-group">
+								<label for="camarero">Camarero</label> 
+								<h:selectOneMenu value = "#{gestionRegistroFactura.idCamarero}" >
+									<f:selectItems value="#{gestionRegistroFactura.consultarObjetosIDs('camarero')}"></f:selectItems>
+								</h:selectOneMenu>
+							</div>
+							
+							<div class="form-group">
+								<label for="cocinero">Cocinero</label> 
+								<h:selectOneMenu value = "#{gestionRegistroFactura.idCocinero}" >
+									<f:selectItems value="#{gestionRegistroFactura.consultarObjetosIDs('cocinero')}"></f:selectItems>
+								</h:selectOneMenu>
+							</div>
+							
+							<div class="form-group">
+								<label for="mesa">Mesa</label> 
+								<h:selectOneMenu value = "#{gestionRegistroFactura.idMesa}" >
+									<f:selectItems value="#{gestionRegistroFactura.consultarObjetosIDs('mesa')}"></f:selectItems>
+								</h:selectOneMenu>
+							</div>
+							
+							<div class="form-group">
+								<label for="fechaFactura">Fecha de la compra (dd-MM-yyyy hh:mm:ss)</label>
+								<h:inputText id = "fechaFactura" value = "#{gestionRegistroFactura.fechaFactura}">
+									<f:convertDateTime pattern = "dd-MM-yyyy HH:mm:ss" />
+								 </h:inputText>
+							</div>
+							
+							<div class="form-group">
+								<label for="plato">Plato</label> 
+								<h:inputText value="#{gestionRegistroFactura.plato}" class="form-control" id="plato" placeholder="¿Que plato compró?" required="true"/>
+							</div>
+							
+							<div class="form-group">
+								<label for="importe">importe</label> 
+								<h:inputText value="#{gestionRegistroFactura.importe}" class="form-control" id="importe" placeholder="¿Cuál fue el costo?" required="true"/>
+							</div>
+							
+							<center>
+								<h:commandButton value="Registrar" action="#{gestionRegistroFactura.registrar()}" class="btn btn-primary"/>
+							</center>  
+							<div class="center-block text-center" id="msj-alerta">
+								<h:outputText value="#{gestionRegistroFactura.resultado}" />
+							</div> 
+						</h:form>
+					</div>
+					<div class="panel-footer">
+						<div class="row">		
+							<div class="col-xs-12">
+								<a href="/webapp/index.xhtml">
+									<button class="btn btn-warning pull-right">Inicio</button>
+								</a>			
+								<a href="/webapp/consultas/consultar-faturas.xhtml" class="">
+									<button class="btn btn-default pull-left">Consultar Facturas</button>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</ui:define>
+	</ui:decorate>
+</body>
+</html>
